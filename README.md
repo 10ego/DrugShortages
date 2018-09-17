@@ -1,4 +1,4 @@
-Drug Shortages Data Miner for BC Drug Shortages.
+<b>Drug Shortages Data Miner for BC Drug Shortages.</b>
 
 You must have a blanket log file named bc_current_metadata.json and bc_resolved_metadata.json.
 
