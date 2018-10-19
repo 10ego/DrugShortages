@@ -1,5 +1,6 @@
 import requests
 import json
+from datetime import datetime
 
 url = "https://www.drugshortagescanada.ca/api/v1"
 uid = 'LOGIN'
