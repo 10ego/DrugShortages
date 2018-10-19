@@ -12,5 +12,7 @@
 
 ## national_data ##
   <b>Drug Shortages Data Miner for National Drug Shortages database from https://www.drugshortagescanada.ca</b>
+  
   Accounts are required to play with their API (documentation: https://www.drugshortagescanada.ca/blog/52).  
+  
   Script will continue to append to the file "drugshortagescanada.json" with daily new reports.
