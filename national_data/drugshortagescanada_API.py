@@ -10,7 +10,6 @@ counter = 0
 today = datetime.today().strftime('%Y-%m-%d')
 r = requests.post(url+'/login',data={'email':uid,'password':pwd})
 
-
 def data_query():
     global counter
     global updated_date
@@ -26,16 +25,17 @@ def data_query():
     data = data['data']
     
     for report in data:
-        
         updated_date = datetime.strptime(report['updated_date'],'%Y-%m-%dT%H:%M:%S%z')
         updated_date = datetime.strftime(updated_date, '%Y-%m-%d')
         if updated_date == today:
             counter+=1
-            with open('drugshortagescanada.json','a') as f:
-                    json.dump(report,f)
+            with open('drugshortagescanada.json','r+') as f:
+                    f.seek(0,2)
+                    f.seek(f.tell()-1,os.SEEK_SET)
                     f.write(',')
+                    json.dump(report,f)
+                    f.write(']')
         else:
-            print("Total of {} reports found today (dated {})".format(counter, today))
             break
 
 if r.status_code == 200:
@@ -44,6 +44,6 @@ if r.status_code == 200:
     while updated_date == today:
         offset+=50
         data_query()
-
+    print("Total of {} reports found today (dated {})".format(counter, today))
 else:
     print("Connection HTTP error {}".format(r.status_code))
