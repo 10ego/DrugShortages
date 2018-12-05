@@ -30,7 +30,7 @@ def data_query():
         page = data['page']
         total_pages = data['total_pages']
 		offset+=100
-        with open('all_shortages_page_{}.json'.format(page,'w') as f:
+        with open('all_shortages_page_{}.json'.format(page,'w')) as f:
             json.dump(data['data'], f)
         print("Data dumped successfully for page {} of {}".format(page, total_pages))
     elif r.status_code == 429:
