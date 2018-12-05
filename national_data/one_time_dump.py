@@ -19,7 +19,7 @@ def data_query():
     global total_pages
     global offset
     onetime_param = {
-        'orderby':'id'
+        'orderby':'id',
         'order':'asc',
         'limit':100,
         'offset':offset
